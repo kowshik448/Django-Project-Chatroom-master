@@ -1,0 +1,80 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet"    href="{% static 'sign_up.css' %}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>signup</title>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body style="background-color: rgba(126, 43, 43, 0.199);">
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>You are almost ready to chat globally!</p>
+
+
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Join our community</h3>
+                                <form action="signup" method="POST" onsubmit="myFunction()">
+                                    {% csrf_token %}
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" name="first_name" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" name="last_name" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" name="password1" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Confirm Password *"name="password2"  value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female </span> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" value="" name="email" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="UserName *" value="" name="username" />
+                                        </div>
+                                        
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </form>
+                                    
+                                    </div>
+                                    <div>
+                                        <hr><hr>
+                                        {% for message in messages %}
+                                            <h4>* {{message}}</h4>
+                                            {% endfor %}
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </body>
+</html>
